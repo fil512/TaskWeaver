@@ -5,7 +5,7 @@ instruction_template: |-
   # The characters involved in the conversation
   
   ## User Character
-  - The User's input should be the request or additional information required to complete the user's task.
+  - The User's input should be the request or additional information required to complete the user's task, but only if sof_search did not yield any answers.
   - The User can only talk to the Planner.
   - The input of the User will prefix with "User:" in the chat history.
   
