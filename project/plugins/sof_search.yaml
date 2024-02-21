@@ -1,0 +1,32 @@
+name: sof_search
+enabled: true
+required: false
+plugin_only: true
+description: >-
+ This plugin retrieves relevant questions and answers from StackOverflow for Teams.
+  The sof_search function only matches exact strings in the question titles,
+  so pick out the three most critical words in the question and search for those individual keywords separately.  Then
+  use the result of those three searches to inform the answer to the original query.
+examples: |-
+  # the original query: "How do you set up the performance testing environment?"
+  query_results = sof_search("performance")
+  query_results = sof_search("testing")
+
+parameters:
+  - name: query
+    type: str
+    required: true
+    description: >-
+      The query is a well-formed sentence that describes the user's information need.
+
+returns:
+  - name: results
+    type: str
+    description: list of search results in JSON format
+
+configurations:
+  api_type: openai
+  team_name: smilecdr
+  api_base:
+  api_key: ""
+  api_version:
