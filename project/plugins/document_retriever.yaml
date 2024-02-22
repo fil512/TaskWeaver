@@ -1,5 +1,5 @@
 name: document_retriever
-enabled: false
+enabled: true
 required: false
 plugin_only: true
 description: >-
@@ -36,4 +36,4 @@ returns:
       Each document has a chunk content and its metadata.
 
 configurations:
-  index_folder: D:\git\taskweaver\TaskWeaver\project\rag\index
+  index_folder: D:\git\TaskWeaver\project\rag\index
