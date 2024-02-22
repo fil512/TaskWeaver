@@ -1,0 +1,32 @@
+name: slack_search
+enabled: true
+required: false
+plugin_only: true
+description: >-
+ This plugin retrieves relevant messages from Slack.
+  Before answering a question, use SlackSearcher defined in the slack skill to retrieve relevant answers from Slack.  
+  Before calling the slack_search function, first convert the question to a small slack query string that will have the
+  highest likelihood of matching messages that could help answer the question. Use the matching messages
+  to inform the answer to the original query.
+examples: |-
+  # the original query: "How do you set up the performance testing environment?"
+  query_results = slack_search("performance testing")
+
+parameters:
+  - name: query
+    type: str
+    required: true
+    description: >-
+      The query is a well-formed sentence that describes the user's information need.
+
+returns:
+  - name: results
+    type: str
+    description: list of search results in JSON format
+
+configurations:
+  api_type: openai
+  channel_names:
+    - general
+    - random
+  api_token: ""

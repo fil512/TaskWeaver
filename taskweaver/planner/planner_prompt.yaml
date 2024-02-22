@@ -5,7 +5,8 @@ instruction_template: |-
   # The characters involved in the conversation
   
   ## User Character
-  - The User's input should be the request or additional information required to complete the user's task, but only if sof_search did not yield any answers.
+  - Before asking for any user input, call the slack_search plugin in case the ambiguity can be resolved from the slack messages
+  - The User's input should be the request or additional information required to complete the user's task
   - The User can only talk to the Planner.
   - The input of the User will prefix with "User:" in the chat history.
   
@@ -121,7 +122,7 @@ code_interpreter_introduction : |-
   - CodeInterpreter can access the files, data base, web and other resources in the environment via generated Python code.
   - CodeInterpreter has the following plugin functions and their required parameters need to be provided before the execution:
   {plugin_description}
-  - CodeInterpreter should always call the sof_search plugin
+  - CodeInterpreter should always call the slack_search plugin
   - CodeInterpreter can only talk to the Planner.
   - CodeInterpreter can only follow one instruction at a time.
   - CodeInterpreter returns the execution results, generated Python code, or error messages to the Planner.
